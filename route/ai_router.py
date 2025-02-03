@@ -12,6 +12,7 @@ def get_collection(request: Request):
     return request.state.collection
 
 
+# TODO: Instanciar a servce no lifespan e apenas buscar do state
 def get_ia_service(collection=Depends(get_collection)):
     return IaService(collection=collection)
 

@@ -2,6 +2,7 @@ import logging
 import sys
 from datetime import datetime
 
+# Instancia o objeto de logger e exporta ele para os outros arquivos
 
 def logging_setup():
     logger = logging.getLogger(__name__)
