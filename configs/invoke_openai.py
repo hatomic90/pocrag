@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 def get_open_ai_response(prompt: str):
     try:
+        # Encapsular criacao de client da OpenAI em um arquivo de config (Igual ao client do database)
         llm = ChatOpenAI(
             model="gpt-4o-mini",
             api_key=os.getenv("OPENAI_API_KEY"),
@@ -15,6 +16,8 @@ def get_open_ai_response(prompt: str):
             max_tokens=5000,
             top_p=1,
         )
+
+        #Encapsular system prompt em um arquivo de promtp OU classe de gerenciamento da chain
         messages = [
             {
                 "role": "system",
@@ -22,8 +25,10 @@ def get_open_ai_response(prompt: str):
             },
             {"role": "user", "content": prompt},
         ]
-
         response = llm.invoke(messages)
+
+
+
         return response.content
 
     except Exception as e:

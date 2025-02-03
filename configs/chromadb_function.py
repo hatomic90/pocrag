@@ -7,7 +7,7 @@ import uuid
 logger = logging_setup()
 
 
-def create_collection(collection_name: str, client):
+def _create_collection(collection_name: str, client):
     try:
         collection = client.get_or_create_collection(
             name=collection_name, metadata={"hnsw:space": "cosine"}
