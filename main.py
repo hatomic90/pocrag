@@ -1,62 +1,45 @@
 import fastapi
-from fastapi import HTTPException
-from model import UserInput
-from dotenv import load_dotenv
 import chromadb
-from PyPDF2 import PdfReader
-from logging_info import logging_setup
-from chuncking_strategy import invoke_text_spliter
-from chromadb_function import create_collection, add_to_collection
-from invoke_openai import get_open_ai_response
-from prompt.RAG_prompt import traffic_violation_prompt
+import asyncio
+import os
+import shutil
+from configs.logging_info import logging_setup
+from configs.chromadb_function import create_collection, add_to_collection
+from configs.chuncking_strategy import invoke_text_spliter
+from configs.exctract import extract_from_pdf
+from route.ai_router import router
+from contextlib import asynccontextmanager
 
 logger = logging_setup()
 
-load_dotenv()
 
-app = fastapi.FastAPI()
+@asynccontextmanager
+async def lifespan(_: fastapi.FastAPI):
+    logger.info("Starting application")
+    client = chromadb.PersistentClient("./mycollection")
+    collection = create_collection("leis-transito", client)
+    pdf_content = extract_from_pdf("leis-transito.pdf")
+    text_chunks = invoke_text_spliter(
+        separators=["\n\n", "\n", ". ", "? ", "! "],
+        chunk_size=2000,
+        chunk_overlap=250,
+        content=pdf_content,
+    )
+    add_to_collection(text_chunks=text_chunks, collection=collection)
 
-client = chromadb.PersistentClient("./mycollection")
-collection = create_collection("leis-transito", client)
+    yield {"client": client, "collection": collection}
+
+    await asyncio.sleep(1)
+    client.delete_collection("leis-transito")
+
+    collection_path = "./mycollection"
+    if os.path.exists(collection_path):
+        for item in os.listdir(collection_path):
+            shutil.rmtree(os.path.join(collection_path, item), ignore_errors=True)
+
+    logger.info("shutting down application, collection deleted")
 
 
-def extract_from_pdf(file_path):
-    try:
-        with open(file_path, "rb") as file:
-            pdf = PdfReader(file)
-            text = ""
-            for page in pdf.pages:
-                text += page.extract_text() or ""
-        return text
-    except Exception as e:
-        logger.error(f"Erro ao extrair texto do PDF: {e}")
-        raise HTTPException(status_code=500, detail="Erro ao extrair texto do PDF")
+app = fastapi.FastAPI(lifespan=lifespan, title="Infrações de trânsito")
 
-
-@app.post("/ai")
-def llm_response(user_input: UserInput):
-    try:
-        global collection
-        pdf_content = extract_from_pdf("leis-transito.pdf")
-        text_chunks = invoke_text_spliter(
-            separators=["\n\n", "\n", ". ", "? ", "! "],
-            chunk_size=2000,
-            chunk_overlap=250,
-            content=pdf_content,
-        )
-        add_to_collection(text_chunks=text_chunks, collection=collection)
-        results = collection.query(
-            query_texts=[user_input.text],
-            n_results=1,
-            include=["documents", "metadatas"],
-        )
-        result_text = "".join(results["documents"][0])
-        response = get_open_ai_response(
-            prompt=traffic_violation_prompt.format(
-                user_question=user_input.text, search_text=result_text
-            ),
-        )
-        return {"response": response}
-    except Exception as e:
-        logger.error(f"Erro ao processar solicitação: {e}")
-        raise HTTPException(status_code=500, detail="Erro ao processar solicitação")
+app.include_router(router)

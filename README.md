@@ -19,7 +19,7 @@ trânsito.
 
 1. Clone o repositório e entre na pasta do projeto:
    ```bash
-   git clone https://github.com/hesfra/pocRAG.git
+   git clone https://github.com/hatomic90/pocRAG.git
    ```
 
 2. Crie um ambiente virtual (opcional, mas recomendado):
@@ -48,7 +48,7 @@ seguinte formato:
 
 ```json
 {
-    "text": "dirigir sem CNH"
+    "text": "dirigir na contramão"
 }
 ```
 
