@@ -2,19 +2,12 @@ import logging
 import sys
 from datetime import datetime
 
-# Instancia o objeto de logger e exporta ele para os outros arquivos
 
 def logging_setup():
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
 
-    file_name = (
-        "logs"
-        + "\\"
-        + str(datetime.now().strftime("%Y-%m-%d"))
-        + "_"
-        + "date_logs_file"
-    )
+    file_name = str(datetime.now().strftime("%Y-%m-%d")) + "_" + "date_logs_file"
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 
     file_handler = logging.FileHandler(filename=file_name)
@@ -27,3 +20,6 @@ def logging_setup():
     logger.propagate = False
 
     return logger
+
+
+logger = logging_setup()

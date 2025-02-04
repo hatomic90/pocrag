@@ -1,53 +1,52 @@
 import fastapi
-import chromadb
-import asyncio
-import os
-import shutil
-from configs.logging_info import logging_setup
-from configs.chromadb_function import create_collection, add_to_collection
-from configs.chuncking_strategy import invoke_text_spliter
-from configs.exctract import extract_from_pdf
-from route.ai_router import router
+from configs.logging_info import logger
+from storage.knowledge_base import extract_from_pdf, invoke_text_spliter
+from route.traffic_violation_router import traffic_violation
 from contextlib import asynccontextmanager
+from storage.traffic_violations_storage import TrafficViolationsStorage
+from configs.chromadb_conn import get_chroma_client
+from service.traffic_violation_service import TrafficViolationService
+from service.openai_service import TrafficLawChain
+from configs.openai_client import get_openai_client
+import os
+from dotenv import load_dotenv
 
-logger = logging_setup()
+load_dotenv()
 
 
 @asynccontextmanager
 async def lifespan(_: fastapi.FastAPI):
     logger.info("Starting application")
 
-    # TODO: Levar a criação de client poara um modulo/classe de config
-    client = chromadb.PersistentClient("./mycollection") # TODO: Path ser uma enviroment variable
- 
-    # TODO: Encapsular manipulação da base vetorial em uma classe Storage
-    collection = create_collection("leis-transito", client) # TODO:Nome da collection ser uma enviroment variable
+    db_client = get_chroma_client()
+    openai_client = get_openai_client()
 
-    # TODO: Encapsular essa lógica em uma função para buscar knowledge base content
-    pdf_content = extract_from_pdf("leis-transito.pdf") # TODO: Path ser uma enviroment variable
-    text_chunks = invoke_text_spliter(
-        separators=["\n\n", "\n", ". ", "? ", "! "],
-        chunk_size=2000,
-        chunk_overlap=250,
-        content=pdf_content,
+    traffic_violation_storage = TrafficViolationsStorage(client=db_client)
+    open_ai_service = TrafficLawChain(client_openai=openai_client)
+    traffic_violation_service = TrafficViolationService(
+        traffic_violation_storage=traffic_violation_storage,
+        openai_service=open_ai_service,
     )
 
-    # TODO: Adicionar conteudo da knowledge base a collection atraves da Storage
-    add_to_collection(text_chunks=text_chunks, collection=collection)
+    def load_knowlegde_base(storage):
+        pdf_content = extract_from_pdf(os.getenv("TRAFFIC_LAW_PDF"))
+        text_chunks = invoke_text_spliter(
+            separators=["\n\n", "\n", ". ", "? ", "! "],
+            chunk_size=2000,
+            chunk_overlap=250,
+            content=pdf_content,
+        )
+        storage.add_to_collection(text_chunks=text_chunks)
 
-    yield {"client": client, "collection": collection}
+    load_knowlegde_base(traffic_violation_storage)
 
-    await asyncio.sleep(1)
+    yield {"traffic_violation_service": traffic_violation_service}
 
-    client.delete_collection("leis-transito")
-    collection_path = "./mycollection"
-    if os.path.exists(collection_path):
-        for item in os.listdir(collection_path):
-            shutil.rmtree(os.path.join(collection_path, item), ignore_errors=True)
+    traffic_violation_storage.delete_collection()
 
     logger.info("shutting down application, collection deleted")
 
 
 app = fastapi.FastAPI(lifespan=lifespan, title="Infrações de trânsito")
 
-app.include_router(router)
+app.include_router(traffic_violation)

@@ -10,3 +10,9 @@ traffic_violation_prompt = """
     **Pergunta do Usuário:** {user_question}  
     **Trecho do Documento:** {search_text}
 """
+
+SYSTEM_PROMPT = (
+    "Você é um assistente que entende sobre lei de trânsito. "
+    "Se a pergunta não estiver relacionada a lei de trânsito, "
+    "educadamente redirecione o usuário para o tema correto."
+)

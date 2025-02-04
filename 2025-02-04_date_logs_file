@@ -1,0 +1,223 @@
+2025-02-04 09:41:53,992 - INFO - Starting application
+2025-02-04 09:41:54,226 - INFO - starting the extract process
+2025-02-04 09:41:55,106 - INFO - Added 25 documents to collection.
+2025-02-04 09:43:08,200 - ERROR - Having following issue in get_collection_results method - string indices must be integers, not 'str'
+2025-02-04 09:43:08,201 - ERROR - Error in get_open_ai_response: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'list'>
+2025-02-04 09:47:41,793 - INFO - shutting down application, collection deleted
+2025-02-04 09:47:43,087 - INFO - Starting application
+2025-02-04 09:47:43,289 - INFO - starting the extract process
+2025-02-04 09:47:44,234 - INFO - Added 25 documents to collection.
+2025-02-04 09:48:29,461 - ERROR - Error in get_open_ai_response: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'list'>
+2025-02-04 09:52:05,754 - INFO - shutting down application, collection deleted
+2025-02-04 09:52:07,080 - INFO - Starting application
+2025-02-04 09:52:07,281 - INFO - starting the extract process
+2025-02-04 09:52:08,161 - INFO - Added 25 documents to collection.
+2025-02-04 09:52:16,737 - ERROR - Error in get_open_ai_response: Error code: 404 - {'error': {'message': 'This is a chat model and not supported in the v1/completions endpoint. Did you mean to use v1/chat/completions?', 'type': 'invalid_request_error', 'param': 'model', 'code': None}}
+2025-02-04 09:52:58,423 - INFO - shutting down application, collection deleted
+2025-02-04 09:52:59,735 - INFO - Starting application
+2025-02-04 09:52:59,934 - INFO - starting the extract process
+2025-02-04 09:53:00,847 - INFO - Added 25 documents to collection.
+2025-02-04 09:54:37,286 - INFO - shutting down application, collection deleted
+2025-02-04 09:54:38,557 - INFO - Starting application
+2025-02-04 09:54:38,761 - INFO - starting the extract process
+2025-02-04 09:54:39,736 - INFO - Added 25 documents to collection.
+2025-02-04 09:54:49,498 - INFO - culação de veículos e pedestres:
+Infração – grave;
+Penalidade – multa;
+Medida administrativa – remoção do veículo;Série Legislação
+102
+ XIII – onde houver sinalização horizontal delimitadora de 
+ponto de embarque ou desembarque de passagei-
+ros de transporte coletivo ou, na inexistência desta sinalização, no intervalo compreendido entre dez metros antes e depois do marco do ponto:
+Infração – média;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XIV – nos viadutos, pontes e túneis:
+Infração – grave;Penalidade – multa;Medida administrativa – remoção do veículo;
+ XV – na contramão de direção:
+Infração – média;Penalidade – multa;
+ XVI – em aclive ou declive, não estando devidamente fre-
+ado e sem calço de segurança, quando se tratar de 
+veículo com peso bruto total superior a três mil e quinhentos quilogramas:
+Infração – grave;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XVII – em desacordo com as condições regulamentadas 
+especificamente pela sinalização (placa – Estacio-
+namento Regulamentado):Código de T rânsito Brasileiro – 4a edição
+103
+Infração – leve;
+Penalidade – multa;
+Medida administrativa – remoção do veículo;
+ XVIII – em locais e horários proibidos especificamente pela 
+sinalização (placa – Proibido Estacionar):
+Infração – média;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XIX – em locais e horários de estacionamento e parada 
+proibidos pela sinalização (placa – Proibido Parar e 
+Estacionar):
+Infração – grave;
+Penalidade – multa;
+Medida administrativa – remoção do veículo.
+ § 1º Nos casos previstos neste artigo, a autoridade de trân-
+sito aplicará a penalidade preferencialmente após a re-moção do veículo.
+ § 2º No caso previsto no inciso XVI é proibido abandonar o calço de segurança na via.
+ Art. 182. Parar o veículo:
+ I – nas esquinas e a menos de cinco metros do bordo 
+do alinhamento da via transversal:
+Infração – média;
+Penalidade – multa;Série Legislação
+104
+2025-02-04 09:56:13,041 - INFO - Série Legislação
+92
+aptidão física e mental, ressalvados os casos especiais 
+previstos nesta lei.
+ Art. 160. O condutor condenado por delito de trânsito deverá ser submetido a novos exames para que possa voltar a dirigir, de acordo com as normas estabelecidas pelo Contran, independentemente do reconhecimento da prescrição, em face da pena concretizada na sentença.
+ § 1º Em caso de acidente grave, o condutor nele envolvido poderá ser submetido aos exames exigidos neste artigo, a juízo da autoridade executiva estadual de trânsito, assegurada ampla defesa ao condutor.
+ § 2º No caso do parágrafo anterior, a autoridade executiva estadual de trânsito poderá apreender o documento de habilitação do condutor até a sua aprovação nos exa-mes realizados.
+CaPÍTU lo XV
+Das Infrações
+ Art. 161. Constitui infração de trânsito a inobservância de qual-quer preceito deste código, da legislação complemen-tar ou das resoluções do Contran, sendo o infrator sujeito às penalidades e medidas administrativas indi-cadas em cada artigo, além das punições previstas no Capítulo XIX.
+Parágrafo único. As infrações cometidas em relação às resolu-
+ções do Contran terão suas penalidades e medidas administra-tivas definidas nas próprias resoluções.
+ Art. 162. Dirigir veículo:
+ I – sem possuir Carteira Nacional de Habilitação ou 
+Permissão para Dirigir:Código de T rânsito Brasileiro – 4a edição
+93
+Infração – gravíssima;
+Penalidade – multa (três vezes) e apreensão do veículo;
+ II – com Carteira Nacional de Habilitação ou Permis-
+são para Dirigir cassada ou com suspensão do direi-
+to de dirigir:
+Infração – gravíssima;
+Penalidade – multa (cinco vezes) e apreensão do 
+veículo;
+ III – com Carteira Nacional de Habilitação ou Permis-
+são para Dirigir de categoria diferente da do veícu-lo que esteja conduzindo:
+Infração – gravíssima;
+Penalidade – multa (três vezes) e apreensão do veículo;Medida administrativa – recolhimento do documen -
+to de habilitação;
+ IV – (Vetado.)
+2025-02-04 09:58:50,061 - INFO - culação de veículos e pedestres:
+Infração – grave;
+Penalidade – multa;
+Medida administrativa – remoção do veículo;Série Legislação
+102
+ XIII – onde houver sinalização horizontal delimitadora de 
+ponto de embarque ou desembarque de passagei-
+ros de transporte coletivo ou, na inexistência desta sinalização, no intervalo compreendido entre dez metros antes e depois do marco do ponto:
+Infração – média;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XIV – nos viadutos, pontes e túneis:
+Infração – grave;Penalidade – multa;Medida administrativa – remoção do veículo;
+ XV – na contramão de direção:
+Infração – média;Penalidade – multa;
+ XVI – em aclive ou declive, não estando devidamente fre-
+ado e sem calço de segurança, quando se tratar de 
+veículo com peso bruto total superior a três mil e quinhentos quilogramas:
+Infração – grave;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XVII – em desacordo com as condições regulamentadas 
+especificamente pela sinalização (placa – Estacio-
+namento Regulamentado):Código de T rânsito Brasileiro – 4a edição
+103
+Infração – leve;
+Penalidade – multa;
+Medida administrativa – remoção do veículo;
+ XVIII – em locais e horários proibidos especificamente pela 
+sinalização (placa – Proibido Estacionar):
+Infração – média;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XIX – em locais e horários de estacionamento e parada 
+proibidos pela sinalização (placa – Proibido Parar e 
+Estacionar):
+Infração – grave;
+Penalidade – multa;
+Medida administrativa – remoção do veículo.
+ § 1º Nos casos previstos neste artigo, a autoridade de trân-
+sito aplicará a penalidade preferencialmente após a re-moção do veículo.
+ § 2º No caso previsto no inciso XVI é proibido abandonar o calço de segurança na via.
+ Art. 182. Parar o veículo:
+ I – nas esquinas e a menos de cinco metros do bordo 
+do alinhamento da via transversal:
+Infração – média;
+Penalidade – multa;Série Legislação
+104
+2025-02-04 10:00:33,315 - INFO - Série Legislação
+92
+aptidão física e mental, ressalvados os casos especiais 
+previstos nesta lei.
+ Art. 160. O condutor condenado por delito de trânsito deverá ser submetido a novos exames para que possa voltar a dirigir, de acordo com as normas estabelecidas pelo Contran, independentemente do reconhecimento da prescrição, em face da pena concretizada na sentença.
+ § 1º Em caso de acidente grave, o condutor nele envolvido poderá ser submetido aos exames exigidos neste artigo, a juízo da autoridade executiva estadual de trânsito, assegurada ampla defesa ao condutor.
+ § 2º No caso do parágrafo anterior, a autoridade executiva estadual de trânsito poderá apreender o documento de habilitação do condutor até a sua aprovação nos exa-mes realizados.
+CaPÍTU lo XV
+Das Infrações
+ Art. 161. Constitui infração de trânsito a inobservância de qual-quer preceito deste código, da legislação complemen-tar ou das resoluções do Contran, sendo o infrator sujeito às penalidades e medidas administrativas indi-cadas em cada artigo, além das punições previstas no Capítulo XIX.
+Parágrafo único. As infrações cometidas em relação às resolu-
+ções do Contran terão suas penalidades e medidas administra-tivas definidas nas próprias resoluções.
+ Art. 162. Dirigir veículo:
+ I – sem possuir Carteira Nacional de Habilitação ou 
+Permissão para Dirigir:Código de T rânsito Brasileiro – 4a edição
+93
+Infração – gravíssima;
+Penalidade – multa (três vezes) e apreensão do veículo;
+ II – com Carteira Nacional de Habilitação ou Permis-
+são para Dirigir cassada ou com suspensão do direi-
+to de dirigir:
+Infração – gravíssima;
+Penalidade – multa (cinco vezes) e apreensão do 
+veículo;
+ III – com Carteira Nacional de Habilitação ou Permis-
+são para Dirigir de categoria diferente da do veícu-lo que esteja conduzindo:
+Infração – gravíssima;
+Penalidade – multa (três vezes) e apreensão do veículo;Medida administrativa – recolhimento do documen -
+to de habilitação;
+ IV – (Vetado.)
+2025-02-04 10:01:38,361 - INFO - culação de veículos e pedestres:
+Infração – grave;
+Penalidade – multa;
+Medida administrativa – remoção do veículo;Série Legislação
+102
+ XIII – onde houver sinalização horizontal delimitadora de 
+ponto de embarque ou desembarque de passagei-
+ros de transporte coletivo ou, na inexistência desta sinalização, no intervalo compreendido entre dez metros antes e depois do marco do ponto:
+Infração – média;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XIV – nos viadutos, pontes e túneis:
+Infração – grave;Penalidade – multa;Medida administrativa – remoção do veículo;
+ XV – na contramão de direção:
+Infração – média;Penalidade – multa;
+ XVI – em aclive ou declive, não estando devidamente fre-
+ado e sem calço de segurança, quando se tratar de 
+veículo com peso bruto total superior a três mil e quinhentos quilogramas:
+Infração – grave;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XVII – em desacordo com as condições regulamentadas 
+especificamente pela sinalização (placa – Estacio-
+namento Regulamentado):Código de T rânsito Brasileiro – 4a edição
+103
+Infração – leve;
+Penalidade – multa;
+Medida administrativa – remoção do veículo;
+ XVIII – em locais e horários proibidos especificamente pela 
+sinalização (placa – Proibido Estacionar):
+Infração – média;
+Penalidade – multa;Medida administrativa – remoção do veículo;
+ XIX – em locais e horários de estacionamento e parada 
+proibidos pela sinalização (placa – Proibido Parar e 
+Estacionar):
+Infração – grave;
+Penalidade – multa;
+Medida administrativa – remoção do veículo.
+ § 1º Nos casos previstos neste artigo, a autoridade de trân-
+sito aplicará a penalidade preferencialmente após a re-moção do veículo.
+ § 2º No caso previsto no inciso XVI é proibido abandonar o calço de segurança na via.
+ Art. 182. Parar o veículo:
+ I – nas esquinas e a menos de cinco metros do bordo 
+do alinhamento da via transversal:
+Infração – média;
+Penalidade – multa;Série Legislação
+104
+2025-02-04 10:04:55,918 - INFO - shutting down application, collection deleted
+2025-02-04 10:04:57,236 - INFO - Starting application
+2025-02-04 10:04:57,422 - INFO - starting the extract process
+2025-02-04 10:04:58,311 - INFO - Added 25 documents to collection.
+2025-02-04 10:05:16,169 - INFO - shutting down application, collection deleted
